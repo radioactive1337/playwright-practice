@@ -1,7 +1,7 @@
 from time import sleep
 
 import allure
-from playwright.sync_api import Page
+from playwright.sync_api import Page, expect
 
 
 class BasePage:
@@ -53,3 +53,7 @@ class BasePage:
     @allure.step("Refresh page")
     def refresh_page(self):
         self.page.reload()
+
+    @allure.step('Checking that the element contains the given text')
+    def assert_text_in_element(self, locator, text):
+        expect(self.get_element(locator)).to_contain_text(text)

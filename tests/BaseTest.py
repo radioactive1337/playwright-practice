@@ -16,4 +16,3 @@ class Test:
         p.wait(1)
         p.fill_input("//*[@name='q']","1234")
         p.click_element('//a[@aria-label="Войти"]')
-        p.wait(1)
